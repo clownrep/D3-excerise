@@ -1,7 +1,7 @@
 // d3_boxplot.js
 
 // Load CSV file
-d3.csv("social_media_data.csv").then(function(data) {
+d3.csv("socialMedia.csv").then(function(data) {
     // Convert numerical data
     data.forEach(d => d.Likes = +d.Likes);
 
