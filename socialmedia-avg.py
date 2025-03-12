@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load the dataset
-df = pd.read_csv("social_media_data.csv")
+df = pd.read_csv("socialMedia.csv")
 
 # Convert "Likes" column to numeric
 df["Likes"] = pd.to_numeric(df["Likes"], errors="coerce")
