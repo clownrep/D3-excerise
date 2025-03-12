@@ -63,29 +63,33 @@ d3.csv("socialMediaAvg.csv").then(function(data) {
        .attr("height", d => height - y(d.AvgLikes))
        .attr("fill", d => color(d.PostType));
 
-    // Legend
+    // Legend setup
     const legend = svg.append("g")
-                      .attr("transform", `translate(${width - 120}, 10)`);
-
+                      .attr("transform", `translate(0, -30)`); // Move legend above the chart
+    
     const legendKeys = [...new Set(data.map(d => d.PostType))];
-
-    legend.selectAll("rect")
-          .data(legendKeys)
-          .enter()
-          .append("rect")
-          .attr("x", 0)
-          .attr("y", (d, i) => i * 20)
-          .attr("width", 15)
-          .attr("height", 15)
-          .attr("fill", d => color(d));
-
-    legend.selectAll("text")
-          .data(legendKeys)
-          .enter()
-          .append("text")
-          .attr("x", 20)
-          .attr("y", (d, i) => i * 20 + 12)
-          .text(d => d)
-          .style("font-size", "12px")
-          .attr("alignment-baseline", "left");
-});
+    
+    const legendItemWidth = 100; // Adjust the spacing of each legend item
+    const legendStartX = width / 2 - (legendKeys.length * legendItemWidth) / 2; // Center legend
+    
+    // Draw legend items
+    const legendGroup = legend.selectAll(".legend-item")
+                              .data(legendKeys)
+                              .enter()
+                              .append("g")
+                              .attr("class", "legend-item")
+                              .attr("transform", (d, i) => `translate(${legendStartX + i * legendItemWidth}, 0)`);
+    
+    // Add colored rectangles
+    legendGroup.append("rect")
+               .attr("width", 15)
+               .attr("height", 15)
+               .attr("fill", d => color(d));
+    
+    // Add text labels
+    legendGroup.append("text")
+               .attr("x", 20)
+               .attr("y", 12)
+               .text(d => d)
+               .style("font-size", "12px")
+               .attr("alignment-baseline", "middle");
