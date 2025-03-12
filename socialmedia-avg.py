@@ -1,3 +1,4 @@
+# Ran this file in jupyter notebook to get the cleaned csv below
 import pandas as pd
 
 # Load the dataset
