@@ -65,7 +65,7 @@ d3.csv("socialMediaAvg.csv").then(function(data) {
 
     // Legend
     const legend = svg.append("g")
-                      .attr("transform", `translate(${width - 150}, 10)`);
+                      .attr("transform", `translate(${width - 120}, 10)`);
 
     const legendKeys = [...new Set(data.map(d => d.PostType))];
 
@@ -87,5 +87,5 @@ d3.csv("socialMediaAvg.csv").then(function(data) {
           .attr("y", (d, i) => i * 20 + 12)
           .text(d => d)
           .style("font-size", "12px")
-          .attr("alignment-baseline", "middle");
+          .attr("alignment-baseline", "left");
 });
