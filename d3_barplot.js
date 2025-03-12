@@ -1,5 +1,5 @@
 // Load the CSV file
-d3.csv("SocialMediaAvg.csv").then(function(data) {
+d3.csv("SocialMediaAvg.xls").then(function(data) {
     data.forEach(d => {
         d.AvgLikes = +d.AvgLikes; // Convert string to number
     });
