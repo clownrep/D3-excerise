@@ -66,7 +66,7 @@ d3.csv("socialMediaAvg.csv").then(function(data) {
     // Legend
     const legend = svg.append("g")
                       .attr("transform", `translate(${width - 150}, 10)`);
-                      .attr("transform", `translate(0, -30)`);
+                      .attr("transform", `translate((0, -30)`);
 
     const legendKeys = [...new Set(data.map(d => d.PostType))];
 
